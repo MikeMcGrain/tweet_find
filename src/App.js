@@ -2,23 +2,21 @@ import React from "react"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Navigate from "./Navigate"
-import Home from "./Home"
+import Splash from "./Splash"
 import Search from "./Search"
-import Recommended from "./Recommended"
+import Recommend from "./Recommend"
 
-function App() {
+export default function App() {
   return (
     <>
       <Navigate />
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact component={Splash} />
           <Route path="/search" exact component={Search} />
-          <Route path="/recommended" exact component={Recommended} />
+          <Route path="/recommend" exact component={Recommend} />
         </Switch>
       </BrowserRouter>
     </>
   )
 }
-
-export default App
