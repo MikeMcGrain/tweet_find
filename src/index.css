@@ -1,11 +1,3 @@
-.navbar {
-  background-color: #38A1F3;
-}
-
-.nav-text {
-  color: white;
-}
-
 .jumbotron {
   position: relative;
   background-image: url("./images/background.jpg");
@@ -19,11 +11,12 @@
   top: 20%;
   right: 3%;
   text-align: center;
-  font-size: 2.4vw;
+  font-size: 3vw;
   color: whitesmoke;
   font-family: Helvetica;
 }
 
 .text-block > ul {
   list-style-type: none;
+  font-size: 2.4vw;
 }
