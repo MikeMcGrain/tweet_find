@@ -1,0 +1,29 @@
+.navbar {
+  background-color: #38A1F3;
+}
+
+.nav-text {
+  color: white;
+}
+
+.jumbotron {
+  position: relative;
+  background-image: url("./images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 50vw;
+}
+
+.text-block {
+  position: absolute;
+  top: 20%;
+  right: 3%;
+  text-align: center;
+  font-size: 2.4vw;
+  color: whitesmoke;
+  font-family: Helvetica;
+}
+
+.text-block > ul {
+  list-style-type: none;
+}

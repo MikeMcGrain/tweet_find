@@ -3,12 +3,12 @@ import { Navbar, Nav } from "react-bootstrap/"
 
 export default function Navigate() {
   return (
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="/">Find A Tweet</Navbar.Brand>
+    <Navbar className="navbar" expand="sm">
+      <Navbar.Brand href="/">TwitterLogo </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link href="/">Home</Nav.Link>
+        <Nav className="nav-text">
+          <Nav.Link className="nav-text" href="/">Home</Nav.Link>
           <Nav.Link href="/search">Search</Nav.Link>
           <Nav.Link href="/recommend">Recommendations</Nav.Link>
         </Nav>
