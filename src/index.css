@@ -1,14 +1,14 @@
-.jumbotron {
+body {
   position: relative;
   background-image: url("./images/background.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  height: 50vw;
+  height: 45vw;
 }
 
 .text-block {
   position: absolute;
-  top: 20%;
+  top: 30%;
   right: 3%;
   text-align: center;
   font-size: 3vw;
@@ -20,3 +20,60 @@
   list-style-type: none;
   font-size: 2.4vw;
 }
+
+.searchbox {
+  margin: 3%;
+}
+
+.searchbox > input {
+  width: 36vw;
+  border: 2px solid #00aced;
+  transition: border 0.3s ease-out;
+  border-radius: 20px;
+  background: transparent;
+  font-size: 1.75em;
+  color: white;
+  text-align: center;
+}
+
+.searchbox > button {
+  margin: 20px 30px;
+  width: 80px;
+  height: 80px;
+  outline: none;
+  border: 2px solid #00aced;
+  transition: border 0.5s ease-out;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.25);
+  text-align: center;
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.83);
+}
+
+.searchbox > button:hover {
+  border: 4px solid #1dcaff;
+}
+
+.searchbox > input:hover {
+  border: solid #1dcaff;
+}
+/* 
+Twitter Dark Blue
+Hex: #0084b4
+RGB: 0, 132, 180
+
+Twitter Logo Blue
+Hex: #00aced
+RGB: 0, 172, 237
+
+Twitter Verified Blue
+Hex: #1dcaff
+RGB: 29, 202, 255
+
+Twitter Background Blue
+Hex: #c0deed
+RGB: 192, 222, 237
+
+White	White
+Hex: #ffffff
+RGB: 255, 255, 255 */

@@ -1,10 +1,8 @@
 import React from "react"
-import Jumbotron from "react-bootstrap/Jumbotron"
 import "./index.css"
 
 export default function Splash() {
   return (
-    <Jumbotron fluid>
       <div className="text-block">
         <p>Welcome</p>
         <ul>
@@ -13,6 +11,5 @@ export default function Splash() {
           <li>View recommended tweeters</li>
         </ul>
       </div>
-    </Jumbotron>
   )
 }
