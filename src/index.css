@@ -22,7 +22,7 @@ body {
 }
 
 .searchbox {
-  margin: 5% 3%;
+  margin: 5% 0;
 }
 
 *:focus {
@@ -30,13 +30,13 @@ body {
 }
 
 .searchbox > input {
-  width: 36vw;
+  width: 100%;
   border: 2px ridge #00aced;
   transition: border 0.3s ease-out;
   border-radius: 20px;
   background: transparent;
   text-align: center;
-  font-size: 2.5vw;
+  font-size: 2.5vmax;
   color: white;
 }
 
@@ -56,8 +56,8 @@ body {
   color: white;
 }
 
-.searchbox > button {
-  margin: 2vw 6vw;
+.button-style {
+  margin: 10% 0;
   width: 80px;
   height: 80px;
   outline: none;
@@ -70,7 +70,7 @@ body {
   color: rgba(255, 255, 255, 0.83);
 }
 
-.searchbox > button:hover, input:hover {
+.button-style:hover, input:hover {
   border: 3px solid #1dcaff;
 }
 
