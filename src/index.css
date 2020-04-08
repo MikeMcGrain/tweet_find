@@ -22,7 +22,7 @@ body {
 }
 
 .searchbox {
-  margin: 3%;
+  margin: 5% 3%;
 }
 
 *:focus {
@@ -36,20 +36,23 @@ body {
   border-radius: 20px;
   background: transparent;
   text-align: center;
-  font-size: 1.75em;
+  font-size: 2.5vw;
   color: white;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: white;
-  opacity: .75; /* Firefox */
+  opacity: 0.75; /* Firefox */
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
   color: white;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
+::-ms-input-placeholder {
+  /* Microsoft Edge */
   color: white;
 }
 
@@ -67,9 +70,12 @@ body {
   color: rgba(255, 255, 255, 0.83);
 }
 
-.searchbox > button:hover,
-input:hover {
+.searchbox > button:hover, input:hover {
   border: 3px solid #1dcaff;
+}
+
+.tweet-card {
+  margin: 20px;
 }
 
 /* 

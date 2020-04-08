@@ -3,13 +3,13 @@ import "./index.css"
 
 export default function Splash() {
   return (
-      <div className="text-block">
-        <p>Welcome</p>
-        <ul>
-          <li>Search for tweets by user</li>
-          <li>Search for tweets by topic</li>
-          <li>View recommended tweeters</li>
-        </ul>
-      </div>
+    <div className="text-block">
+      <p>Welcome</p>
+      <ul>
+        <li>Search for tweets by user</li>
+        <li>Search for tweets by topic</li>
+        <li>View recommended tweeters</li>
+      </ul>
+    </div>
   )
 }
