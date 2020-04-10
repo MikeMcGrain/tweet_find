@@ -1,25 +1,120 @@
 import React, { useState } from "react"
 import { Container, Col, Row } from "react-bootstrap"
+import Card from "react-bootstrap/Card"
 import Image from "react-bootstrap/Image"
+import profilePic from "./images/twitterLogo.png"
 
-export default function Recommend() {
+export default function Search() {
+  const [tweets, setTweets] = useState([])
+  const [user, setUser] = useState()
+
+  function displayTweets(e) {
+    setUser(e.target.name)
+    setTweets([
+      {
+        image: "user image",
+        name: e.target.name,
+        screenName: `@${e.target.name}sTwitter`,
+        text: "blah blah blah",
+        date: "YYYY-MM-DD",
+      },
+      {
+        image: "user image",
+        name: "Horace Silver",
+        screenName: "@SilverTwitter",
+        text: "blah blah blah",
+        date: "YYYY-MM-DD",
+      },
+      {
+        image: "user image",
+        name: "Sonny Clark",
+        screenName: "@SonnysTwitter",
+        text: "blah blah blah",
+        date: "YYYY-MM-DD",
+      }
+    ])
+  }
+
+  const renderTweets = tweets.map((tweet) => {
+    return (
+      <Card body className="tweet-card" key={tweet.screenName}>
+        <Card.Img
+          className="tweet-card-img"
+          src={profilePic}
+          alt="profile pic"
+        />
+        <Card.Text>
+          <p>
+            {tweet.name}
+            {tweet.screenName}
+          </p>
+          <p>{tweet.text}</p>
+          <p>{tweet.date}</p>
+        </Card.Text>
+      </Card>
+    )
+  })
+
   return (
-    <div>
-      <h1>Recommended Twitterers</h1>
-      <p>Same as search page, but with five fixed selections</p>
-      <Container>
-        <Row>
-          <Col xs={6} md={4}>
-            <Image src="holder.js/171x180" rounded />
-          </Col>
-          <Col xs={6} md={4}>
-            <Image src="holder.js/171x180" roundedCircle />
-          </Col>
-          <Col xs={6} md={4}>
-            <Image src="holder.js/171x180" thumbnail />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+
+    <Container fluid="md">
+              <h1 className="text-center">Curated Tweeters</h1>
+
+      <Row>
+        <Col>
+          <Image
+            className="rec-img"
+            name="NatureIsScary"
+            onClick={displayTweets}
+            src={profilePic}
+            alt="NatureIsScary"
+            roundedCircle
+          />
+        </Col>
+        <Col>
+          <Image
+            className="rec-img"
+            name="MAIDsafe"
+            onClick={displayTweets}
+            src={profilePic}
+            alt="MAIDsafe"
+            roundedCircle
+          />
+        </Col>
+        <Col>
+          <Image
+            className="rec-img"
+            name="Bitcoin"
+            onClick={displayTweets}
+            src={profilePic}
+            alt="Bitcoin"
+            roundedCircle
+          />
+        </Col>
+        <Col>
+          <Image
+            className="rec-img"
+            name="Stoic"
+            onClick={displayTweets}
+            src={profilePic}
+            alt="Stoic"
+            roundedCircle
+          />
+        </Col>
+        <Col>
+          <Image
+            className="rec-img"
+            onClick={displayTweets}
+            name="Mickey"
+            src={profilePic}
+            alt="Mickey"
+            roundedCircle
+          />
+        </Col>
+      </Row>
+      <Row>
+        <Col>{renderTweets}</Col>
+      </Row>
+    </Container>
   )
 }

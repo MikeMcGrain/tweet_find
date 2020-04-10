@@ -1,10 +1,19 @@
 import React from "react"
 import { Navbar, Nav } from "react-bootstrap/"
+import twitterLogo from "./images/twitterLogoOutline.png"
 
 export default function Navigate() {
   return (
-    <Navbar bg="light" expand="sm">
-      <Navbar.Brand href="/">TwitterLogo </Navbar.Brand>
+    <Navbar className="nav-style" bg="dark" variant="dark" expand="sm">
+      <Navbar.Brand href="/">
+        <img
+          src={twitterLogo}
+          width="30"
+          height="30"
+          className="d-inline-block align-top"
+          alt="Twitter logo"
+        />
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav>

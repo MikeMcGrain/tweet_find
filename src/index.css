@@ -1,10 +1,10 @@
 body {
   position: relative;
+  height: 45vw;
+  background-size: 100%;
   background-color: black;
   background-image: url("./images/background.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
-  height: 45vw;
   color: whitesmoke;
   font-family: Helvetica;
 }
@@ -38,6 +38,7 @@ body {
   background: transparent;
   text-align: center;
   font-size: 2.5vmax;
+  color: white;
 }
 
 ::placeholder {
@@ -70,7 +71,7 @@ body {
 }
 
 .button-style:hover,
-input:hover {
+input:hover, .rec-img:hover {
   border: 3px solid #1dcaff;
 }
 
@@ -80,6 +81,24 @@ input:hover {
   border-radius: 20px;
   background: rgba(0, 0, 0, 0.75);
   color: white;
+}
+
+.rec-img {
+  margin: 30% 0 10% 0;
+  height: 10vw;
+  border: 2px ridge #00aced;
+  transition: border 0.5s ease-out;
+}
+
+.tweet-card-img {
+  display: inline-block;
+  height: 5%;
+  width: 5%;
+}
+
+h1 {
+  padding-top: 30px;
+  font-size: 3vw;
 }
 
 /* 

@@ -33,21 +33,7 @@ export default function Search() {
         screenName: "@SonnysTwitter",
         text: "blah blah blah",
         date: "YYYY-MM-DD",
-      },
-      {
-        image: "user image",
-        name: "Cleavon Chesterton",
-        screenName: "@LevonCleavon",
-        text: "blah blah blah",
-        date: "YYYY-MM-DD",
-      },
-      {
-        image: "user image",
-        name: "Eustice Jackson",
-        screenName: "@JacksonTwitter",
-        text: "blah blah blah",
-        date: "YYYY-MM-DD",
-      },
+      }
     ])
   }
 
@@ -74,36 +60,20 @@ export default function Search() {
         screenName: "@SonnysTwitter",
         text: "blah blah blah",
         date: "YYYY-MM-DD",
-      },
-      {
-        image: "user image",
-        name: "Cleavon Chesterton",
-        screenName: "@LevonCleavon",
-        text: "blah blah blah",
-        date: "YYYY-MM-DD",
-      },
-      {
-        image: "user image",
-        name: "Eustice Jackson",
-        screenName: "@JacksonTwitter",
-        text: "blah blah blah",
-        date: "YYYY-MM-DD",
-      },
+      }
     ])
   }
 
   const renderTweets = tweets.map((tweet) => {
     return (
-      <Card className="tweet-card" key={tweet.screenName}>
-        <Card.Body>
-          <img src={tweet.image} />
+      <Card body className="tweet-card" key={tweet.screenName}>
+          <img src={tweet.image} alt="profile pic" />
           <p>
             {tweet.name}
             {tweet.screenName}
           </p>
           <p>{tweet.text}</p>
           <p>{tweet.date}</p>
-        </Card.Body>
       </Card>
     )
   })
@@ -123,14 +93,10 @@ export default function Search() {
             <Container fluid>
               <Row>
                 <Col>
-                  <button className="button-style" onClick={searchByUser}>
-                    @
-                  </button>
+                  <button className="button-style" onClick={searchByUser}>@</button>
                 </Col>
                 <Col>
-                  <button className="button-style" onClick={searchByTopic}>
-                    #
-                  </button>
+                  <button className="button-style" onClick={searchByTopic}>#</button>
                 </Col>
               </Row>
             </Container>
