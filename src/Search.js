@@ -5,13 +5,14 @@ import Card from "react-bootstrap/Card"
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("")
   const [tweets, setTweets] = useState([])
+  const [listTitle, setListTitle] = useState("")
 
   function handleInput(e) {
     setSearchTerm(e.target.value)
   }
 
-  function searchByUser() {
-    setSearchTerm("")
+  function searchByUser() {console.log(searchTerm)
+    setListTitle(`Tweets by @${searchTerm}`)
     setTweets([
       {
         image: "user image",
@@ -35,10 +36,11 @@ export default function Search() {
         date: "YYYY-MM-DD",
       }
     ])
+    setSearchTerm("")
   }
 
   function searchByTopic() {
-    setSearchTerm("")
+    setListTitle(`Tweets with #${searchTerm}`)   
     setTweets([
       {
         image: "user image",
@@ -62,6 +64,7 @@ export default function Search() {
         date: "YYYY-MM-DD",
       }
     ])
+    setSearchTerm("")
   }
 
   const renderTweets = tweets.map((tweet) => {
@@ -92,17 +95,20 @@ export default function Search() {
             />
             <Container fluid>
               <Row>
-                <Col>
+                <Col className="text-center">
                   <button className="button-style" onClick={searchByUser}>@</button>
                 </Col>
-                <Col>
+                <Col className="text-center">
                   <button className="button-style" onClick={searchByTopic}>#</button>
                 </Col>
               </Row>
             </Container>
           </div>
         </Col>
-        <Col>{renderTweets}</Col>
+        <Col>
+          <h1>{listTitle}</h1>
+          {renderTweets}
+        </Col>
       </Row>
     </Container>
   )
