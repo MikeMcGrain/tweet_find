@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/MikeMcGrain/tweet_find/issues"
   },
-  "homepage": "https://github.com/MikeMcGrain/tweet_find#readme"
+  "homepage": "https://github.com/MikeMcGrain/tweet_find#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
