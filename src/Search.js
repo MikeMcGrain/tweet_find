@@ -106,7 +106,7 @@ export default function Search() {
           </div>
         </Col>
         <Col>
-          <h1>{listTitle}</h1>
+          <h1 className="text-center">{listTitle}</h1>
           {renderTweets}
         </Col>
       </Row>

@@ -3,6 +3,7 @@ import { Container, Col, Row } from "react-bootstrap"
 import Card from "react-bootstrap/Card"
 import Image from "react-bootstrap/Image"
 import profilePic from "./images/twitterLogo.png"
+import someGuy from "./images/someGuy.jpg"
 
 export default function Search() {
   const [tweets, setTweets] = useState([])
@@ -66,7 +67,7 @@ export default function Search() {
             className="rec-img"
             name="NatureIsScary"
             onClick={displayTweets}
-            src={profilePic}
+            src={someGuy}
             alt="NatureIsScary"
             roundedCircle
           />
