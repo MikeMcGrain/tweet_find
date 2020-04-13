@@ -9,6 +9,16 @@ body {
   font-family: Helvetica;
 }
 
+.link {
+  color: white;
+  padding-left: 15px;
+}
+
+.link:hover {
+  color: #00aced;
+  text-decoration: none;
+}
+
 .text-block {
   position: absolute;
   top: 30%;

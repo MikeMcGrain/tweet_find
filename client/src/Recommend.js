@@ -45,12 +45,12 @@ export default function Search() {
           alt="profile pic"
         />
         <Card.Text>
-          <p>
-            {tweet.name}
+         {tweet.name}
             {tweet.screenName}
-          </p>
-          <p>{tweet.text}</p>
-          <p>{tweet.date}</p>
+          <br />
+          {tweet.text}
+          <br />
+          {tweet.date}
         </Card.Text>
       </Card>
     )

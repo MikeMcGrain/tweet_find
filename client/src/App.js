@@ -9,8 +9,8 @@ import Recommend from "./Recommend"
 export default function App() {
   return (
     <>
-      <Navigate />
       <BrowserRouter>
+        <Navigate />
         <Switch>
           <Route path="/" exact component={Splash} />
           <Route path="/search" exact component={Search} />
