@@ -8,19 +8,10 @@ const PORT = 3000
 
 app.use(express.static("client/build"))
 
+app.listen(PORT, () =>
+  console.log(`Example app listening at http://localhost:${PORT}`)
+)
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(_dirname + "/client/build", "index.html"))
 })
-
-app.get("/search", (req, res) => {
-  res.sendFile(path.join(_dirname + "/client/build", "index.html"))
-})
-
-app.get("/recommend", (req, res) => {
-  res.sendFile(path.join(_dirname + "/client/build", "index.html"))
-})
-
-app.listen(PORT, () =>
-  console.log(`Example app listening at http://localhost:${PORT}`)
-)
