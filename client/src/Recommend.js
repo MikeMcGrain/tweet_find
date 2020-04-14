@@ -32,7 +32,7 @@ export default function Search() {
         screenName: "@SonnysTwitter",
         text: "blah blah blah",
         date: "YYYY-MM-DD",
-      }
+      },
     ])
   }
 
@@ -45,8 +45,8 @@ export default function Search() {
           alt="profile pic"
         />
         <Card.Text>
-         {tweet.name}
-            {tweet.screenName}
+          {tweet.name}
+          {tweet.screenName}
           <br />
           {tweet.text}
           <br />
@@ -57,14 +57,12 @@ export default function Search() {
   })
 
   return (
-
     <Container fluid="md">
-              <h1 className="text-center">Curated Tweeters</h1>
-
+      <h1 className="search-list-title">Curated Tweeters</h1>
       <Row>
         <Col>
           <Image
-            className="rec-img"
+            className="recommend-img"
             name="NatureIsScary"
             onClick={displayTweets}
             src={someGuy}
@@ -74,7 +72,7 @@ export default function Search() {
         </Col>
         <Col>
           <Image
-            className="rec-img"
+            className="recommend-img"
             name="MAIDsafe"
             onClick={displayTweets}
             src={profilePic}
@@ -84,7 +82,7 @@ export default function Search() {
         </Col>
         <Col>
           <Image
-            className="rec-img"
+            className="recommend-img"
             name="Bitcoin"
             onClick={displayTweets}
             src={profilePic}
@@ -94,7 +92,7 @@ export default function Search() {
         </Col>
         <Col>
           <Image
-            className="rec-img"
+            className="recommend-img"
             name="Stoic"
             onClick={displayTweets}
             src={profilePic}
@@ -104,7 +102,7 @@ export default function Search() {
         </Col>
         <Col>
           <Image
-            className="rec-img"
+            className="recommend-img"
             onClick={displayTweets}
             name="Mickey"
             src={profilePic}

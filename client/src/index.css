@@ -5,29 +5,30 @@ body {
   background-color: black;
   background-image: url("./images/background.jpg");
   background-repeat: no-repeat;
-  color: whitesmoke;
+  color: white;
   font-family: Helvetica;
 }
 
-.link {
+.navbar-link {
   color: white;
   padding-left: 15px;
 }
 
-.link:hover {
+.navbar-link:hover {
   color: #00aced;
   text-decoration: none;
 }
 
-.text-block {
+.splash-text-block {
   position: absolute;
   top: 30%;
   right: 3%;
   text-align: center;
   font-size: 3vw;
+  text-shadow: 6px 6px 14px black, 1px 1px 0 black;
 }
 
-.text-block > ul {
+.splash-text-block > ul {
   list-style-type: none;
   font-size: 2.4vw;
 }
@@ -80,9 +81,14 @@ body {
   color: rgba(255, 255, 255, 0.83);
 }
 
-.button-style:hover,
-input:hover, .rec-img:hover {
+.button-style:hover, input:hover, .rec-img:hover {
   border: 3px solid #1dcaff;
+}
+
+.search-list-title {
+  /* padding-top: 20px; */
+  font-size: 3vw;
+  text-align: center;
 }
 
 .tweet-card {
@@ -93,22 +99,17 @@ input:hover, .rec-img:hover {
   color: white;
 }
 
-.rec-img {
-  margin: 30% 0 10% 0;
-  height: 10vw;
-  border: 2px ridge #00aced;
-  transition: border 0.5s ease-out;
-}
-
 .tweet-card-img {
   display: inline-block;
   height: 5%;
   width: 5%;
 }
 
-h1 {
-  padding-top: 30px;
-  font-size: 3vw;
+.recommend-img {
+  margin: 30% 0 10% 0;
+  height: 10vw;
+  border: 2px ridge #00aced;
+  transition: border 0.5s ease-out;
 }
 
 /* 
