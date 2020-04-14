@@ -1,15 +1,28 @@
-import React from "react"
+import React, { useState } from "react"
 import { Navbar, Nav, NavItem } from "react-bootstrap/"
 import { Link } from "react-router-dom"
 import twitterLogo from "./images/twitterLogoOutline.png"
+import otherTwitterLogo from "./images/twitterLogo.png"
 
 export default function Navigate() {
+  const [logo, setLogo] = useState(twitterLogo)
+
+  function hover() {
+    setLogo(otherTwitterLogo)
+  }
+
+  function unhover() {
+    setLogo(twitterLogo)
+  }
+
   return (
-    <Navbar className="nav-style" expand="sm">
+    <Navbar expand="sm">
       <Navbar.Brand>
-        <Link to="/" className="link">
+        <Link to="/">
           <img
-            src={twitterLogo}
+            onMouseOver={hover}
+            onMouseOut={unhover}
+            src={logo}
             width="30"
             height="30"
             className="d-inline-block align-top"
@@ -21,13 +34,19 @@ export default function Navigate() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav>
           <NavItem>
-            <Link to="/" className="navbar-link">Home</Link>
+            <Link to="/" className="navbar-link">
+              Home
+            </Link>
           </NavItem>
           <NavItem>
-            <Link to="/search" className="navbar-link">Search</Link>
+            <Link to="/search" className="navbar-link">
+              Search
+            </Link>
           </NavItem>
           <NavItem>
-            <Link to="/recommend" className="navbar-link">Recommendations</Link>
+            <Link to="/recommend" className="navbar-link">
+              Recommendations
+            </Link>
           </NavItem>
         </Nav>
       </Navbar.Collapse>

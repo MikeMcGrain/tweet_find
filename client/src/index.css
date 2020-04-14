@@ -81,7 +81,7 @@ body {
   color: rgba(255, 255, 255, 0.83);
 }
 
-.button-style:hover, input:hover, .rec-img:hover {
+.button-style:hover, input:hover, .recomend-img:hover {
   border: 3px solid #1dcaff;
 }
 
