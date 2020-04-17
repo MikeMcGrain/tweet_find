@@ -1,6 +1,7 @@
 import express from "express"
 import axios from "axios"
-import { getBearerToken } from "./getBearerToken.js"
+// import { getBearerToken } from "./getBearerToken.js"
+import getBearerToken from "./getBearerToken.js"
 
 const app = express()
 
