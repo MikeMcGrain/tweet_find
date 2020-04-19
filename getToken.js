@@ -21,16 +21,14 @@ const config = {
 let token
 
 export default async function getToken() {
-  if (token) {
-    return token
-  }
-  return await axios
-    .post(url, data, config)
-    .then((response) => {
-      token = response.data.access_token
-      return token
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+  return token ? token
+    : await axios
+        .post(url, data, config)
+        .then((response) => {
+          token = response.data.access_token
+          return token
+        })
+        .catch((error) => {
+          console.log(error)
+        })
 }
