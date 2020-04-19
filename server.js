@@ -1,8 +1,10 @@
 import express from "express"
 import axios from "axios"
 import getToken from "./getToken.js"
+import dotenv from "dotenv"
+dotenv.config({ silent: true })
 
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 const app = express()
 app.use(express.static("client/build"))

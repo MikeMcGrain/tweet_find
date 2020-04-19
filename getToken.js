@@ -1,7 +1,9 @@
 import axios from "axios"
+import dotenv from "dotenv"
+dotenv.config({ silent: true })
 
-const PUBLIC_KEY = "mnUnLLOSD8zxS1iXa7EVsCPpy"
-const PRIVATE_KEY = "fn0jUhnyU6aHW6BIiEWJGNTwTOHtJehjqfsQYjSojwUhxm6aJL"
+const PUBLIC_KEY = process.env.PUBLIC_KEY
+const PRIVATE_KEY = process.env.PRIVATE_KEY
 
 const url = "https://api.twitter.com/oauth2/token"
 const data = "grant_type=client_credentials"
