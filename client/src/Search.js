@@ -11,36 +11,17 @@ export default function Search() {
     setSearchTerm(e.target.value)
   }
 
-  function searchByUser() {console.log(searchTerm)
+  function searchByUser() {
+    console.log(searchTerm)
     setListTitle(`Tweets by @${searchTerm}`)
-    setTweets([
-      {
-        image: "user image",
-        name: "Timmeh!",
-        screenName: "@BobsTwitter",
-        text: "blah blah blah",
-        date: "YYYY-MM-DD",
-      },
-      {
-        image: "user image",
-        name: "Horace Silver",
-        screenName: "@SilverTwitter",
-        text: "blah blah blah",
-        date: "YYYY-MM-DD",
-      },
-      {
-        image: "user image",
-        name: "Sonny Clark",
-        screenName: "@SonnysTwitter",
-        text: "blah blah blah",
-        date: "YYYY-MM-DD",
-      }
-    ])
+
+    fetch("/api/search").then((resp) => {console.log(resp.data)})
+
     setSearchTerm("")
   }
 
   function searchByTopic() {
-    setListTitle(`Tweets with #${searchTerm}`)   
+    setListTitle(`Tweets with #${searchTerm}`)
     setTweets([
       {
         image: "user image",
@@ -62,7 +43,7 @@ export default function Search() {
         screenName: "@SonnysTwitter",
         text: "blah blah blah",
         date: "YYYY-MM-DD",
-      }
+      },
     ])
     setSearchTerm("")
   }
@@ -70,13 +51,13 @@ export default function Search() {
   const renderTweets = tweets.map((tweet) => {
     return (
       <Card body className="tweet-card" key={tweet.screenName}>
-          <img src={tweet.image} alt="profile pic" />
-          <p>
-            {tweet.name}
-            {tweet.screenName}
-          </p>
-          <p>{tweet.text}</p>
-          <p>{tweet.date}</p>
+        <img src={tweet.image} alt="profile pic" />
+        <p>
+          {tweet.name}
+          {tweet.screenName}
+        </p>
+        <p>{tweet.text}</p>
+        <p>{tweet.date}</p>
       </Card>
     )
   })
@@ -96,10 +77,14 @@ export default function Search() {
             <Container fluid>
               <Row>
                 <Col className="text-center">
-                  <button className="button-style" onClick={searchByUser}>@</button>
+                  <button className="button-style" onClick={searchByUser}>
+                    @
+                  </button>
                 </Col>
                 <Col className="text-center">
-                  <button className="button-style" onClick={searchByTopic}>#</button>
+                  <button className="button-style" onClick={searchByTopic}>
+                    #
+                  </button>
                 </Col>
               </Row>
             </Container>
