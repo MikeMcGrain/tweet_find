@@ -18,7 +18,6 @@ app.get("/api/search", async (req, res) => {
     .get(url, { headers: { authorization: authString } })
     .then((response) => {
       res.send(response.data)
-      console.log(response.data)
     })
     .catch((error) => {
       console.log(`Error from query: ${error}`)

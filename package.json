@@ -4,7 +4,9 @@
   "description": "server for Twitter app",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm run watch --prefix client",
+    "dev": "concurrently \"nodemon app.js\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
   },
   "type": "module",
   "devDependencies": {
+    "concurrently": "^5.1.0",
     "nodemon": "^2.0.3"
   }
 }

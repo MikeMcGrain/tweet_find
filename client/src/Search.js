@@ -12,10 +12,9 @@ export default function Search() {
   }
 
   function searchByUser() {
-    console.log(searchTerm)
     setListTitle(`Tweets by @${searchTerm}`)
 
-    fetch("/api/search").then((resp) => {console.log(resp.data)})
+    fetch("/api/search").then((resp) => {console.log(resp)})
 
     setSearchTerm("")
   }
