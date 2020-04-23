@@ -16,7 +16,7 @@ export default function Search() {
     setTweets([
       {
         image: "user image",
-        name: "Bob",
+        name: "Timmeh!",
         screenName: "@BobsTwitter",
         text: "blah blah blah",
         date: "YYYY-MM-DD",
