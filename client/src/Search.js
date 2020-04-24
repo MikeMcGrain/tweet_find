@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Container, Col, Row } from "react-bootstrap"
 import Card from "react-bootstrap/Card"
+import axios from "axios"
 
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -13,14 +14,6 @@ export default function Search() {
 
   function searchByUser() {
     setListTitle(`Tweets by @${searchTerm}`)
-
-    fetch("/api/search").then((resp) => {console.log(resp)})
-
-    setSearchTerm("")
-  }
-
-  function searchByTopic() {
-    setListTitle(`Tweets with #${searchTerm}`)
     setTweets([
       {
         image: "user image",
@@ -44,6 +37,21 @@ export default function Search() {
         date: "YYYY-MM-DD",
       },
     ])
+    setSearchTerm("")
+  }
+
+  function searchByTopic() {
+    setListTitle(`Tweets with #${searchTerm}`)
+
+    axios
+      .get("/api/search/")
+      .then((response) => {
+        console.log(response.data.statuses)
+      })
+      .catch((error) => {
+        console.log("Returned Error: " + error)
+      })
+
     setSearchTerm("")
   }
 
