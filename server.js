@@ -10,7 +10,6 @@ const app = express()
 app.use(express.static("client/build"))
 
 app.get("/api/search", async (req, res) => {
-  console.log(req.query.q)
   const url = `https://api.twitter.com/1.1/search/tweets.json?q=${req.query.q}&lang=en&result_type=recent&count=3`
   const token = await getToken()
   const authString = `Bearer ${token}`
@@ -18,7 +17,6 @@ app.get("/api/search", async (req, res) => {
   axios
     .get(url, { headers: { authorization: authString } })
     .then((response) => {
-      // res.send(response.data)
       const tweets = response.data.statuses.map((tweet) => {
         return {
           id: tweet.id,

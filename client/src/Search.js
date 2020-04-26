@@ -61,11 +61,8 @@ export default function Search() {
 
   const renderTweets = tweets.map((tweet) => {
     return (
-      <Card body className="tweet-card" key={tweet.screenName}>
+      <Card body className="tweet-card" key={tweet.id}>
         <img src={tweet.userImg} alt="profile pic" />
-        <p>
-          {tweet.id}
-        </p>
         <p>{tweet.tweetBody}</p>
         <p>{tweet.datePosted}</p>
       </Card>
