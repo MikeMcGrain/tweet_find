@@ -49,7 +49,8 @@ export default function Search() {
     axios
       .get(url)
       .then((response) => {
-        console.log(response.data.statuses)
+        setTweets(response.data)
+        console.log(response.data)
       })
       .catch((error) => {
         console.log("Returned Error: " + error)
@@ -61,13 +62,12 @@ export default function Search() {
   const renderTweets = tweets.map((tweet) => {
     return (
       <Card body className="tweet-card" key={tweet.screenName}>
-        <img src={tweet.image} alt="profile pic" />
+        <img src={tweet.userImg} alt="profile pic" />
         <p>
-          {tweet.name}
-          {tweet.screenName}
+          {tweet.id}
         </p>
-        <p>{tweet.text}</p>
-        <p>{tweet.date}</p>
+        <p>{tweet.tweetBody}</p>
+        <p>{tweet.datePosted}</p>
       </Card>
     )
   })
