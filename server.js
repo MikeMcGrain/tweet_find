@@ -10,21 +10,31 @@ const app = express()
 app.use(express.static("client/build"))
 
 app.get("/api/search", async (req, res) => {
-  const url = `https://api.twitter.com/1.1/search/tweets.json?q=${req.query.q}&lang=en&result_type=recent&count=3`
   const token = await getToken()
-  const authString = `Bearer ${token}`
+  const url = `https://api.twitter.com/1.1/search/tweets.json`
+  const config = {
+    params: {
+      q: req.query.q,
+      result_type: "mixed",
+      count: 3,
+    },
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
 
   axios
-    .get(url, { headers: { authorization: authString } })
+    .get(url, config)
     .then((response) => {
       const tweets = response.data.statuses.map((tweet) => {
         return {
           id: tweet.id,
+          userURL: tweet.user.url,
           userImg: tweet.user.profile_image_url,
-          tweetBody: tweet.text,
-          datePosted: tweet.created_at,
           userName: tweet.user.name,
           userHandle: tweet.user.screen_name,
+          tweetBody: tweet.text,
+          datePosted: tweet.created_at,
           retweets: tweet.retweet_count,
           likes: tweet.favorite_count,
         }
@@ -32,7 +42,7 @@ app.get("/api/search", async (req, res) => {
       res.send(tweets)
     })
     .catch((error) => {
-      console.log(`Error from query: ${error}`)
+      console.log(error)
     })
 })
 

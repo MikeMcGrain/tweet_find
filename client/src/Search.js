@@ -12,6 +12,22 @@ export default function Search() {
     setSearchTerm(e.target.value)
   }
 
+  function searchByTopic() {
+    setListTitle(`Tweets with #${searchTerm}`)
+    const url = `/api/search?q=${searchTerm}`
+
+    axios
+      .get(url)
+      .then((response) => {
+        setTweets(response.data)
+      })
+      .catch((error) => {
+        console.log("Returned Error: " + error)
+      })
+
+    setSearchTerm("")
+  }
+
   function searchByUser() {
     setListTitle(`Tweets by @${searchTerm}`)
 
@@ -41,30 +57,15 @@ export default function Search() {
     setSearchTerm("")
   }
 
-  function searchByTopic() {
-    setListTitle(`Tweets with #${searchTerm}`)
-    const url = `/api/search?q=${searchTerm}` 
-    console.log(url)
-
-    axios
-      .get(url)
-      .then((response) => {
-        setTweets(response.data)
-        console.log(response.data)
-      })
-      .catch((error) => {
-        console.log("Returned Error: " + error)
-      })
-
-    setSearchTerm("")
-  }
-
   const renderTweets = tweets.map((tweet) => {
     return (
       <Card body className="tweet-card" key={tweet.id}>
-        <img src={tweet.userImg} alt="profile pic" />
+       <a href={tweet.userURL} target="_blank">
+         <img src={tweet.userImg} alt="profile pic" />
+          <p>{tweet.userName}@{tweet.userHandle}</p>
+        </a>
         <p>{tweet.tweetBody}</p>
-        <p>{tweet.datePosted}</p>
+        <p>{tweet.datePosted} {tweet.retweets} {tweet.likes}</p>
       </Card>
     )
   })
@@ -78,20 +79,16 @@ export default function Search() {
               onChange={handleInput}
               value={searchTerm}
               type="text"
-              placeholder="enter a username or topic..."
+              placeholder=" search username or topic..."
               autoFocus
             />
             <Container fluid>
               <Row>
                 <Col className="text-center">
-                  <button className="button-style" onClick={searchByUser}>
-                    @
-                  </button>
+                  <button className="button-style" onClick={searchByUser}>@</button>
                 </Col>
                 <Col className="text-center">
-                  <button className="button-style" onClick={searchByTopic}>
-                    #
-                  </button>
+                  <button className="button-style" onClick={searchByTopic}>#</button>
                 </Col>
               </Row>
             </Container>
