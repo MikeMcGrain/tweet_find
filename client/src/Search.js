@@ -14,6 +14,7 @@ export default function Search() {
 
   function searchByUser() {
     setListTitle(`Tweets by @${searchTerm}`)
+
     setTweets([
       {
         image: "user image",
@@ -42,9 +43,11 @@ export default function Search() {
 
   function searchByTopic() {
     setListTitle(`Tweets with #${searchTerm}`)
+    const url = `/api/search?q=${searchTerm}` 
+    console.log(url)
 
     axios
-      .get("/api/search/")
+      .get(url)
       .then((response) => {
         console.log(response.data.statuses)
       })

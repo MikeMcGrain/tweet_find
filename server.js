@@ -4,13 +4,16 @@ import getToken from "./getToken.js"
 import dotenv from "dotenv"
 dotenv.config({ silent: true })
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 
 const app = express()
 app.use(express.static("client/build"))
 
 app.get("/api/search", async (req, res) => {
-  const url = "https://api.twitter.com/1.1/search/tweets.json?q=naval&lang=en&result_type=recent&count=1"
+ console.log(req.query.q)
+  const url = `https://api.twitter.com/1.1/search/tweets.json?q=${req.query.q}&lang=en&result_type=recent&count=1`
+console.log(url)
+  // const url = "https://api.twitter.com/1.1/search/tweets.json?q=naval&lang=en&result_type=recent&count=1"
   const token = await getToken()
   const authString = `Bearer ${token}`
 
