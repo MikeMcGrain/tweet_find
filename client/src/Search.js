@@ -14,8 +14,8 @@ export default function Search() {
 
   function searchByTopic() {
     setListTitle(`Tweets with #${searchTerm}`)
-    const url = `/api/search?q=${searchTerm}`
 
+    const url = `/api/searchtopic/${searchTerm}`
     axios
       .get(url)
       .then((response) => {
@@ -31,29 +31,16 @@ export default function Search() {
   function searchByUser() {
     setListTitle(`Tweets by @${searchTerm}`)
 
-    setTweets([
-      {
-        image: "user image",
-        name: "Bill",
-        screenName: "@BillsTwitter",
-        text: "blah blah blah",
-        date: "YYYY-MM-DD",
-      },
-      {
-        image: "user image",
-        name: "Horace Silver",
-        screenName: "@SilverTwitter",
-        text: "blah blah blah",
-        date: "YYYY-MM-DD",
-      },
-      {
-        image: "user image",
-        name: "Sonny Clark",
-        screenName: "@SonnysTwitter",
-        text: "blah blah blah",
-        date: "YYYY-MM-DD",
-      },
-    ])
+    const url = `/api/searchuser/${searchTerm}`
+    axios
+      .get(url)
+      .then((response) => {
+        setTweets(response.data)
+      })
+      .catch((error) => {
+        console.log("Returned Error: " + error)
+      })
+
     setSearchTerm("")
   }
 
