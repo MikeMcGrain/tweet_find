@@ -4,18 +4,18 @@ import Card from "react-bootstrap/Card"
 import axios from "axios"
 import Image from "react-bootstrap/Image"
 
-import nature_is_scary_pic from "./images/natureisscary.jpg"
+import openbazaar_pic from "./images/openbazaar.jpg"
 import maidsafe_pic from "./images/maidsafe.jpg"
 import lbry_pic from "./images/lbry.png"
-import bendormiki_pic from "./images/bendormiki.jpg"
+import dash_pic from "./images/dash.jpg"
 import startsocieties_pic from "./images/startsocieties.jpg"
 
 export default function Search() {
   const [tweets, setTweets] = useState([])
   const [tweeters] = useState([
     {
-      name: "NatureisScary",
-      image: nature_is_scary_pic,
+      name: "OpenBazaar",
+      image: openbazaar_pic,
     },
     {
       name: "maidsafe",
@@ -30,8 +30,8 @@ export default function Search() {
       image: startsocieties_pic,
     },
     {
-      name: "bendormiki",
-      image: bendormiki_pic,
+      name: "Dash",
+      image: dash_pic,
     },
 ])
 
