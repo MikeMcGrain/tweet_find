@@ -80,8 +80,14 @@ body {
   font-size: 40px;
   color: rgba(255, 255, 255, 0.83);
 }
+.recommend-img {
+  margin: 30% 0 10% 0;
+  height: 8vw;
+  border: 2px ridge #00aced;
+  transition: border 0.9s ease-out;
+}
 
-.button-style:hover, input:hover, .recomend-img:hover {
+.recommend-img:hover, .button-style:hover, input:hover {
   border: 3px solid #1dcaff;
 }
 
@@ -103,13 +109,6 @@ body {
   display: inline-block;
   height: 5%;
   width: 5%;
-}
-
-.recommend-img {
-  margin: 30% 0 10% 0;
-  height: 10vw;
-  border: 2px ridge #00aced;
-  transition: border 0.5s ease-out;
 }
 
 /* 

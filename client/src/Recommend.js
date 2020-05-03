@@ -33,11 +33,10 @@ export default function Search() {
       name: "bendormiki",
       image: bendormiki_pic,
     },
-  ])
+])
 
   function displayTweets(e) {
     const url = `/api/searchuser/${e.target.name}`
-    console.log(url)
     axios
       .get(url)
       .then((response) => {setTweets(response.data)})
@@ -81,7 +80,7 @@ export default function Search() {
       <h1 className="search-list-title">Curated tweeters</h1>
       <Row>{renderTweeters}</Row>
       <Row>
-        <Col>{renderTweets}</Col>
+        {renderTweets}
       </Row>
     </Container>
   )
