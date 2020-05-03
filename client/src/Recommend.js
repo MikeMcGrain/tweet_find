@@ -1,116 +1,85 @@
 import React, { useState } from "react"
 import { Container, Col, Row } from "react-bootstrap"
 import Card from "react-bootstrap/Card"
+import axios from "axios"
 import Image from "react-bootstrap/Image"
-import profilePic from "./images/twitterLogo.png"
-import someGuy from "./images/someGuy.jpg"
+
+import nature_is_scary_pic from "./images/natureisscary.jpg"
+import maidsafe_pic from "./images/maidsafe.jpg"
+import lbry_pic from "./images/lbry.png"
+import bendormiki_pic from "./images/bendormiki.jpg"
+import startsocieties_pic from "./images/startsocieties.jpg"
 
 export default function Search() {
   const [tweets, setTweets] = useState([])
-  const [user, setUser] = useState()
+  const [tweeters] = useState([
+    {
+      name: "NatureisScary",
+      image: nature_is_scary_pic,
+    },
+    {
+      name: "maidsafe",
+      image: maidsafe_pic,
+    },
+    {
+      name: "LBRYio",
+      image: lbry_pic,
+    },
+    {
+      name: "startsocieties",
+      image: startsocieties_pic,
+    },
+    {
+      name: "bendormiki",
+      image: bendormiki_pic,
+    },
+  ])
 
   function displayTweets(e) {
-    setUser(e.target.name)
-    setTweets([
-      {
-        image: "user image",
-        name: e.target.name,
-        screenName: `@${e.target.name}sTwitter`,
-        text: "blah blah blah",
-        date: "YYYY-MM-DD",
-      },
-      {
-        image: "user image",
-        name: "Horace Silver",
-        screenName: "@SilverTwitter",
-        text: "blah blah blah",
-        date: "YYYY-MM-DD",
-      },
-      {
-        image: "user image",
-        name: "Sonny Clark",
-        screenName: "@SonnysTwitter",
-        text: "blah blah blah",
-        date: "YYYY-MM-DD",
-      },
-    ])
+    const url = `/api/searchuser/${e.target.name}`
+    console.log(url)
+    axios
+      .get(url)
+      .then((response) => {setTweets(response.data)})
+      .catch((error) => {console.log("Returned Error: " + error)})
   }
 
   const renderTweets = tweets.map((tweet) => {
     return (
-      <Card body className="tweet-card" key={tweet.screenName}>
+      <Card body className="tweet-card" key={tweet.id}>
         <Card.Img
           className="tweet-card-img"
-          src={profilePic}
+          src={tweet.userImg}
           alt="profile pic"
         />
         <Card.Text>
-          {tweet.name}
-          {tweet.screenName}
-          <br />
-          {tweet.text}
-          <br />
-          {tweet.date}
+          {tweet.userName}@{tweet.userHandle}<br />
+          {tweet.tweetBody}<br />
+          {tweet.datePosted} {tweet.retweets} {tweet.likes}
         </Card.Text>
       </Card>
     )
   })
 
+  const renderTweeters = tweeters.map((tweeter) => {
+    return (
+      <Col key={tweeter.name}>
+        <Image
+          className="recommend-img"
+          name={tweeter.name}
+          onClick={displayTweets}
+          src={tweeter.image}
+          alt={tweeter.name + "profile pic"}
+          roundedCircle
+        />
+      </Col>
+    )
+  })
+
   return (
     <Container fluid="md">
-      <h1 className="search-list-title">Curated Tweeters</h1>
-      <Row>
-        <Col>
-          <Image
-            className="recommend-img"
-            name="NatureIsScary"
-            onClick={displayTweets}
-            src={someGuy}
-            alt="NatureIsScary"
-            roundedCircle
-          />
-        </Col>
-        <Col>
-          <Image
-            className="recommend-img"
-            name="MAIDsafe"
-            onClick={displayTweets}
-            src={profilePic}
-            alt="MAIDsafe"
-            roundedCircle
-          />
-        </Col>
-        <Col>
-          <Image
-            className="recommend-img"
-            name="Bitcoin"
-            onClick={displayTweets}
-            src={profilePic}
-            alt="Bitcoin"
-            roundedCircle
-          />
-        </Col>
-        <Col>
-          <Image
-            className="recommend-img"
-            name="Stoic"
-            onClick={displayTweets}
-            src={profilePic}
-            alt="Stoic"
-            roundedCircle
-          />
-        </Col>
-        <Col>
-          <Image
-            className="recommend-img"
-            onClick={displayTweets}
-            name="Mickey"
-            src={profilePic}
-            alt="Mickey"
-            roundedCircle
-          />
-        </Col>
-      </Row>
+      <h1 className="search-list-title">Curated tweeters</h1>
+      <Row>{renderTweeters}</Row>
       <Row>
         <Col>{renderTweets}</Col>
       </Row>

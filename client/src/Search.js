@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Container, Col, Row } from "react-bootstrap"
 import Card from "react-bootstrap/Card"
+import Image from "react-bootstrap/Image"
 import axios from "axios"
 
 export default function Search() {
@@ -13,46 +14,36 @@ export default function Search() {
   }
 
   function searchByTopic() {
-    setListTitle(`Tweets with #${searchTerm}`)
-
     const url = `/api/searchtopic/${searchTerm}`
     axios
       .get(url)
-      .then((response) => {
-        setTweets(response.data)
-      })
-      .catch((error) => {
-        console.log("Returned Error: " + error)
-      })
-
+      .then((response) => { setTweets(response.data) })
+      .catch((error) => { console.log("Returned Error: " + error) })
+    setListTitle(`Tweets with #${searchTerm}`)
     setSearchTerm("")
   }
 
   function searchByUser() {
-    setListTitle(`Tweets by @${searchTerm}`)
-
     const url = `/api/searchuser/${searchTerm}`
     axios
       .get(url)
-      .then((response) => {
-        setTweets(response.data)
-      })
-      .catch((error) => {
-        console.log("Returned Error: " + error)
-      })
-
+      .then((response) => { setTweets(response.data) })
+      .catch((error) => { console.log("Returned Error: " + error) })
+    setListTitle(`Tweets by @${searchTerm}`)
     setSearchTerm("")
   }
 
   const renderTweets = tweets.map((tweet) => {
     return (
       <Card body className="tweet-card" key={tweet.id}>
-       <a href={tweet.userURL} target="_blank">
-         <img src={tweet.userImg} alt="profile pic" />
-          <p>{tweet.userName}@{tweet.userHandle}</p>
+        <a href={tweet.userURL} target="_blank" rel="noopener noreferrer">
+          <Image src={tweet.userImg} alt="profile pic" roundedCircle />
         </a>
-        <p>{tweet.tweetBody}</p>
-        <p>{tweet.datePosted} {tweet.retweets} {tweet.likes}</p>
+        <Card.Text>
+          {tweet.userName}@{tweet.userHandle}<br />
+          {tweet.tweetBody}<br />
+          {tweet.datePosted} {tweet.retweets} {tweet.likes}
+        </Card.Text>
       </Card>
     )
   })
