@@ -1,10 +1,10 @@
 import React from "react"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
-import Navigate from "./Navigate"
-import Splash from "./Splash"
-import Search from "./Search"
-import Recommend from "./Recommend"
+import Navigate from "./components/Navigate"
+import Splash from "./components/Splash"
+import Search from "./components/Search"
+import Recommend from "./components/Recommend"
 
 export default function App() {
   return (

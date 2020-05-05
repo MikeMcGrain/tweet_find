@@ -4,7 +4,7 @@ import getToken from "./getToken.js"
 import dotenv from "dotenv"
 dotenv.config({ silent: true })
 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3000
 
 const app = express()
 app.use(express.static("client/build"))
@@ -20,7 +20,7 @@ app.get("/api/searchtopic/:topic", async (req, res) => {
       q: req.params.topic,
       result_type: "mixed",
       count: 3,
-    }
+    },
   }
 
   axios
@@ -56,13 +56,14 @@ app.get("/api/searchuser/:user", async (req, res) => {
     params: {
       screen_name: req.params.user,
       count: 3,
-    }
+    },
   }
 
   axios
     .get(url, config)
     .then((response) => {
       const tweets = response.data.map((tweet) => {
+
         return {
           id: tweet.id,
           userURL: tweet.user.url,
@@ -82,7 +83,7 @@ app.get("/api/searchuser/:user", async (req, res) => {
     })
 })
 
-app.get("/", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`)
 })
 

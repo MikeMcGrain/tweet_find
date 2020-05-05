@@ -3,7 +3,7 @@ body {
   height: 45vw;
   background-size: 100%;
   background-color: black;
-  background-image: url("./images/background.jpg");
+  background-image: url("./assets/background.jpg");
   background-repeat: no-repeat;
   color: white;
   font-family: Helvetica;
@@ -98,7 +98,7 @@ body {
 }
 
 .tweet-card {
-  margin: 20px;
+  margin-bottom: 20px;
   border: 2px ridge #00aced;
   border-radius: 20px;
   background: rgba(0, 0, 0, 0.75);
@@ -106,10 +106,12 @@ body {
 }
 
 .tweet-card-img {
-  display: inline-block;
+  float: left;
+  padding-right: 10px;
   height: 5%;
   width: 5%;
 }
+
 
 /* 
 Twitter Dark Blue
