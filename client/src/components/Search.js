@@ -8,11 +8,7 @@ export default function Search() {
   const [tweets, setTweets] = useState([])
   const [listTitle, setListTitle] = useState("")
 
-  function handleInput(e) {
-    setSearchTerm(e.target.value)
-  }
-
-  function searchByTopic() {
+  function getTweetsByTopic() {
     const url = `/api/searchtopic/${searchTerm}`
     axios
       .get(url)
@@ -26,7 +22,7 @@ export default function Search() {
     setSearchTerm("")
   }
 
-  function searchByUser() {
+  function getTweetsByUser() {
     const url = `/api/searchuser/${searchTerm}`
     axios
       .get(url)
@@ -52,12 +48,9 @@ export default function Search() {
             </Col>
             <Col>
               <Card.Text>
-                {tweet.userName}@{tweet.userHandle} |{" "}
-                {moment(tweet.datePosted).fromNow()}
-                <br />
-                {tweet.tweetBody}
-                <br />
-                Retweets: {tweet.retweets} | Likes: {tweet.likes}
+                {tweet.userName}<span id="grayText">@{tweet.userHandle} | {moment(tweet.datePosted).fromNow()}</span><br />
+                {tweet.tweetBody}<br />
+                <span id="grayText">Retweets: {tweet.retweets} | Likes: {tweet.likes}</span>
               </Card.Text>
             </Col>
           </Row>
@@ -72,7 +65,7 @@ export default function Search() {
         <Col xs={12} sm={5} className="text-center">
           <div className="searchbox">
             <input
-              onChange={handleInput}
+              onChange={(e) => setSearchTerm(e.target.value)}
               value={searchTerm}
               type="text"
               placeholder=" search username or topic..."
@@ -81,14 +74,10 @@ export default function Search() {
             <Container fluid>
               <Row>
                 <Col className="text-center">
-                  <button className="button-style" onClick={searchByUser}>
-                    @
-                  </button>
+                  <button className="button-style" onClick={getTweetsByUser}>@</button>
                 </Col>
                 <Col className="text-center">
-                  <button className="button-style" onClick={searchByTopic}>
-                    #
-                  </button>
+                  <button className="button-style" onClick={getTweetsByTopic}>#</button>
                 </Col>
               </Row>
             </Container>

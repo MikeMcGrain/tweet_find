@@ -87,7 +87,9 @@ body {
   transition: border 0.9s ease-out;
 }
 
-.recommend-img:hover, .button-style:hover, input:hover {
+.recommend-img:hover,
+.button-style:hover,
+input:hover {
   border: 3px solid #1dcaff;
 }
 
@@ -112,6 +114,9 @@ body {
   width: 5%;
 }
 
+#grayText {
+  color: gray;
+}
 
 /* 
 Twitter Dark Blue

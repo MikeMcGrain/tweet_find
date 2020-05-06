@@ -22,7 +22,7 @@ export const importedTweeters = [
     image: startsocieties_pic,
   },
   {
-    name: "Dash",
+    name: "Dashpay",
     image: dash_pic,
   },
 ]

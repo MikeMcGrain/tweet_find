@@ -4,11 +4,26 @@ import axios from "axios"
 import moment from "moment"
 import { importedTweeters } from "../assets/recomendTweeters.js"
 
-export default function Search() {
+export default function Recommend() {
   const [tweets, setTweets] = useState([])
   const [tweeters] = useState(importedTweeters)
 
-  function displayTweets(e) {
+  const renderTweeters = tweeters.map((tweeter) => {
+    return (
+      <Col className="text-center" key={tweeter.name}>
+        <Image
+          className="recommend-img"
+          name={tweeter.name}
+          onClick={getTweetsByUser}
+          src={tweeter.image}
+          alt={tweeter.name + "profile pic"}
+          roundedCircle
+        />
+      </Col>
+    )
+  })
+
+  function getTweetsByUser(e) {
     const url = `/api/searchuser/${e.target.name}`
     axios
       .get(url)
@@ -19,21 +34,6 @@ export default function Search() {
         console.log("Returned Error: " + error)
       })
   }
-
-  const renderTweeters = tweeters.map((tweeter) => {
-    return (
-      <Col className="text-center" key={tweeter.name}>
-        <Image
-          className="recommend-img"
-          name={tweeter.name}
-          onClick={displayTweets}
-          src={tweeter.image}
-          alt={tweeter.name + "profile pic"}
-          roundedCircle
-        />
-      </Col>
-    )
-  })
 
   const renderTweets = tweets.map((tweet) => {
     return (
@@ -47,11 +47,9 @@ export default function Search() {
             </Col>
             <Col>
               <Card.Text>
-                {tweet.userName}@{tweet.userHandle} | {moment(tweet.datePosted).fromNow()}
-                <br />
-                {tweet.tweetBody}
-                <br />
-                Retweets: {tweet.retweets} | Likes: {tweet.likes}
+                {tweet.userName}<span id="grayText">@{tweet.userHandle} | {moment(tweet.datePosted).fromNow()}</span><br />
+                {tweet.tweetBody}<br />
+                <span id="grayText">Retweets: {tweet.retweets} | Likes: {tweet.likes}</span>
               </Card.Text>
             </Col>
           </Row>
