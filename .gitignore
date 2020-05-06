@@ -4,7 +4,7 @@ node_modules
 /client/.pnp
 
 # production
-/client/build
+# /client/build
 
 # misc
 .DS_Store
