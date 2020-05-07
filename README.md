@@ -1,5 +1,5 @@
 # Tweet_Find
-A full-stack web application that allows users to search for recent tweets by username or topic.
+A single-page application that allows users to search for recent tweets by username or topic.
 
 Try it out on Heroku <a href="https://tweet-find.herokuapp.com/" target="_blank">HERE</a>.
 
@@ -7,7 +7,7 @@ Try it out on Heroku <a href="https://tweet-find.herokuapp.com/" target="_blank"
 <img src="./readme_images/recPage.png">
 
 ## Summary
-I made a conscious effort to take full advantage of tools like npm, concurrently, nodemon, and watch-build during devolopment.  Digging through the TwitterAPI docs was certainly the most grueling part of this project; but, seeing all those connections come together, from front to back, is always worth it. 
+I made a conscious effort to take full advantage of tools like npm, concurrently, nodemon, and watch-build during devolopment.  Digging through the TwitterAPI docs was certainly the most grueling part of this project; but, seeing all those connections come together, from front to back, is always worth it.
 
 <img src="./readme_images/javascript.svg" width="60">&nbsp;&nbsp;
 <img src="./readme_images/html-5.svg" width="50">&nbsp;&nbsp;
