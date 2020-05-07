@@ -7,15 +7,14 @@ Try it out on Heroku <a href="https://tweet-find.herokuapp.com/" target="_blank"
 <img src="./readme_images/recPage.png">
 
 ## Summary
-I made a concious effort to take full advantage of tools like npm, concurrently, nodemon, and watch-build during devolopment. Learning how to interact with TwitterAPI was certainly the most challenging, but see all those connections come togeth from front to back is always worth it. 
+I made a conscious effort to take full advantage of tools like npm, concurrently, nodemon, and watch-build during devolopment.  Digging through the TwitterAPI docs was certainly the most grueling part of this project; but, seeing all those connections come together, from front to back, is always worth it. 
 
-<img src="./readme_images/javascript.svg" width="50">&nbsp;&nbsp;
+<img src="./readme_images/javascript.svg" width="60">&nbsp;&nbsp;
 <img src="./readme_images/html-5.svg" width="50">&nbsp;&nbsp;
 <img src="./readme_images/css-3.svg" width="50">&nbsp;&nbsp;
-<img src="./readme_images/react.svg" width="50">&nbsp;&nbsp;
+<img src="./readme_images/react.svg" width="60">&nbsp;&nbsp;
 <img src="./readme_images/node.png" width="60">&nbsp;&nbsp;
 <img src="./readme_images/heroku.svg" width="40">
-
 
 ## How to run on local machine
 
