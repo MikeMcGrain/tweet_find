@@ -37,7 +37,7 @@ export default function Recommend() {
 
   const renderTweets = tweets.map((tweet) => {
     return (
-      <Card key={tweet.id} className="text-center" className="tweet-card" body>
+      <Card key={tweet.id} className="tweet-card" body>
         <Container fluid>
           <Row>
             <Col xs="auto">

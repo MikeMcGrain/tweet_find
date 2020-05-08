@@ -13,8 +13,8 @@ export default function App() {
         <Navigate />
         <Switch>
           <Route path="/" exact component={Splash} />
-          <Route path="/search" exact component={Search} />
-          <Route path="/recommend" exact component={Recommend} />
+          <Route path="/search" component={Search} />
+          <Route path="/recommend" component={Recommend} />
         </Switch>
       </BrowserRouter>
     </>
