@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Card, Image, Container, Col, Row } from "react-bootstrap"
+import { FaHeart, FaRetweet } from "react-icons/fa";
 import axios from "axios"
 import moment from "moment"
 
@@ -50,7 +51,7 @@ export default function Search() {
               <Card.Text>
                 {tweet.userName}<span id="grayText">@{tweet.userHandle} | {moment(tweet.datePosted).fromNow()}</span><br />
                 {tweet.tweetBody}<br />
-                <span id="grayText">Retweets: {tweet.retweets} | Likes: {tweet.likes}</span>
+                <span id="grayText"><FaHeart /> {tweet.retweets} | <FaRetweet /> {tweet.likes}</span>
               </Card.Text>
             </Col>
           </Row>
