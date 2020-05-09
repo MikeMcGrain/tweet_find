@@ -1,8 +1,11 @@
 import express from "express"
 import axios from "axios"
 import getToken from "./getToken.js"
+import path from 'path';
 import dotenv from "dotenv"
 dotenv.config({ silent: true })
+
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 const PORT = process.env.PORT || 3000
 
