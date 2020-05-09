@@ -1,13 +1,11 @@
 import express from "express"
+import path from "path"
 import axios from "axios"
 import getToken from "./getToken.js"
-import path from 'path';
 import dotenv from "dotenv"
 dotenv.config({ silent: true })
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
-
-const PORT = process.env.PORT || 3000
+const __dirname = path.dirname(new URL(import.meta.url).pathname)
 
 const app = express()
 app.use(express.static("client/build"))
@@ -66,7 +64,6 @@ app.get("/api/searchuser/:user", async (req, res) => {
     .get(url, config)
     .then((response) => {
       const tweets = response.data.map((tweet) => {
-
         return {
           id: tweet.id,
           userURL: tweet.user.url,
@@ -90,4 +87,5 @@ app.get("/*", (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`)
 })
 
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => console.log(`server listening on port: ${PORT}`))
